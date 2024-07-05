@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tod-o-tron Fury 9000</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main id="app--core">
+        <header id="todo--header">
+            <h1>Tod-o-tron Fury 9000</h1>
+        </header>
+        <form id="todo--form">
+            <input type="text" name="criar--tarefa" id="criar--tarefa" placeholder="Crie uma tarefa...">
+            <button type="submit" id="add--tarefa" class="add--tarefa"> + </button>
+        </form>
+        <section id="tarefas">
+            <article class="tarefa--item">
+                <input type="checkbox" class="tarefa--check" name="concluido">
+                <h2 class="tarefa--titulo">Dummy Task</h2>
+            </article>
+        </section>
+        <footer id="todo--footer">
+            <span class="counter">Tudo Feito!</span>
+            <div class="wrapper--filtros">
+                <button class="btn--filtro" id="todas">Todas</button>
+                <button class="btn--filtro" id="pendentes">Pendentes</button>
+                <button class="btn--filtro" id="done">Concluídas</button>
+            </div>
+            <button class="btn--filtro" id="limpar">Limpar concluídas</button>
+        </footer>
+    </main>
+</body>
+
+</html>

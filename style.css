@@ -1,0 +1,93 @@
+:root {
+    --padding-x: 1.5rem;
+    --padding-y: 1.25rem;
+    --gap: 1.5rem;
+    --font-xl: 2.5rem;
+    --font-body: 1.125rem;
+    --font-small: .875rem
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-size: var(--font-body);
+}
+
+.grad--text {
+    background: linear-gradient(181deg, #020824 39.21%, #432399 57.24%, #973691 73.26%, #FF9EA8 94.09%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#app--core {
+    min-width: 20.3125rem;
+    width: 33.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#todo--header {
+    margin-bottom: 3rem;
+}
+
+#todo--form,
+#todo--footer {
+    flex: 0 0;
+    height: 4rem;
+    padding: var(--padding-y) var(--padding-x);
+}
+
+#todo--form {
+    display: flex;
+    gap: var(--gap);
+    border-radius: .875rem;
+    border: 2px solid purple;
+    margin-bottom: 1.5rem;
+}
+
+#tarefas {
+    flex: 1 1;
+}
+
+.tarefa--item {
+    gap: var(--gap);
+    display: flex;
+    padding: var(--padding-y) var(--padding-x);
+    align-items: center;
+    border-bottom: 2px solid hsla(235, 14%, 26%, 0.3);
+}
+
+.concluida {
+    text-decoration: line-through;
+}
+
+.tarefa--check {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.add--tarefa {
+    width: 1.5rem;
+    height: 1.5rem;
+    font: inherit;
+}
+
+#criar--tarefa {
+    font: inherit;
+    width: 100%;
+    border: none;
+}
+
+#todo--footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-small);
+}
+
+.btn--filtro {
+    border: none;
+    background: none;
+    font: inherit;
+}
