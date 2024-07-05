@@ -1,0 +1,51 @@
+.text-focus-in {
+    animation: text-focus-in 1s cubic-bezier(.55, .085, .68, .53) both
+}
+
+.atencao {
+    animation: shake-horizontal .8s cubic-bezier(.455, .03, .515, .955) both
+}
+
+
+
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0
+    }
+
+    100% {
+        filter: blur(0);
+        opacity: 1
+    }
+}
+
+
+@keyframes shake-horizontal {
+
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-10px)
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateX(10px)
+    }
+
+    80% {
+        transform: translateX(8px)
+    }
+
+    90% {
+        transform: translateX(-8px)
+    }
+}

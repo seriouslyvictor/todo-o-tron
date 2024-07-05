@@ -5,26 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tod-o-tron Fury 9000</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Krona+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="animista.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
     <main id="app--core">
         <header id="todo--header">
-            <h1>Tod-o-tron Fury 9000</h1>
+            <h1 class="text-focus-in"><span class="outline">todo-o-tron Fury 9000</span><span
+                    class="grad--text">todo-o-tron Fury 9000</span>
+            </h1>
         </header>
         <form id="todo--form">
-            <input type="text" name="criar--tarefa" id="criar--tarefa" placeholder="Crie uma tarefa...">
+            <input type="text" name="criar--tarefa" id="criar--tarefa" class="" placeholder="Crie uma tarefa...">
             <button type="submit" id="add--tarefa" class="add--tarefa"> + </button>
         </form>
         <section id="tarefas">
-            <article class="tarefa--item">
-                <input type="checkbox" class="tarefa--check" name="concluido">
-                <h2 class="tarefa--titulo">Dummy Task</h2>
-            </article>
         </section>
         <footer id="todo--footer">
             <span class="counter">Tudo Feito!</span>

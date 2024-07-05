@@ -1,9 +1,14 @@
 const addTask = function (e) {
   e.preventDefault();
-
   const task = document.getElementById("criar--tarefa");
   const tarefaDiv = document.getElementById("tarefas");
-
+  if (!task.value) {
+    task.classList.add("atencao");
+    setTimeout(() => {
+      task.classList.remove("atencao");
+    }, 1000);
+    return;
+  }
   const newTask = document.createElement("article");
   newTask.classList.add("tarefa--item");
   newTask.innerHTML = `<input type="checkbox" class="tarefa--check" name="concluido">
@@ -21,7 +26,9 @@ const atualizarCounter = function () {
   const counter = document.querySelector(".counter");
   numTarefas <= 0
     ? (counter.textContent = "Tudo Feito 😉")
-    : (counter.textContent = `${numTarefas} Tarefas`);
+    : (counter.textContent = `${numTarefas} ${
+        numTarefas === 1 ? "Tarefa" : "Tarefas"
+      }`);
 };
 
 const adicionarEventos = function () {
@@ -42,6 +49,7 @@ const limparConcluidas = function () {
   for (const tarefa of tarefas) {
     tarefa.classList.contains("concluida") ? tarefa.remove() : null;
   }
+  atualizarCounter();
 };
 
 const removerFiltros = function () {

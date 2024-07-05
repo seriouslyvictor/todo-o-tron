@@ -1,50 +1,86 @@
 :root {
+    --angulo: -45deg;
     --padding-x: 1.5rem;
     --padding-y: 1.25rem;
     --gap: 1.5rem;
-    --font-xl: 2.5rem;
+    --font-xl: 2rem;
     --font-body: 1.125rem;
     --font-small: .875rem
 }
 
 body {
+    background-image: url(Assets/sunset-synthwave-road-thumb.jpg);
+    background-size: cover;
+    background-position: bottom;
     display: grid;
     place-items: center;
     height: 100vh;
+    font-family: "Ubuntu", sans-serif;
     font-size: var(--font-body);
+    color: #C8CBE7;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+
+}
+
+h1 {
+    font-family: "Krona One";
+    font-size: var(--font-xl);
+    letter-spacing: 4.8px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+h2 {
+    font-size: inherit;
 }
 
 .grad--text {
-    background: linear-gradient(181deg, #020824 39.21%, #432399 57.24%, #973691 73.26%, #FF9EA8 94.09%);
+    background: linear-gradient(180deg, #020824 39.21%, #432399 57.24%, #973691 73.26%, #FF9EA8 94.09%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.outline {
+    z-index: 0;
+    background-image: linear-gradient(180deg, hsla(189, 67%, 62%, 1), hsla(261, 90%, 77%, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: absolute;
+    -webkit-text-stroke: 2px transparent;
 }
 
 #app--core {
+    position: relative;
+    padding: var(--padding-x);
+    background-color: hsl(244, 47%, 14%);
     min-width: 20.3125rem;
-    width: 33.75rem;
+    width: 48rem;
     display: flex;
     flex-direction: column;
 }
 
 #todo--header {
+    text-align: center;
     margin-bottom: 3rem;
 }
 
 #todo--form,
 #todo--footer {
+    align-items: center;
     flex: 0 0;
-    height: 4rem;
     padding: var(--padding-y) var(--padding-x);
 }
 
 #todo--form {
+    background-color: hsl(244, 47%, 18%);
     display: flex;
     gap: var(--gap);
-    border-radius: .875rem;
-    border: 2px solid purple;
     margin-bottom: 1.5rem;
+
 }
 
 #tarefas {
@@ -52,11 +88,12 @@ body {
 }
 
 .tarefa--item {
+    background-color: hsl(244, 47%, 18%);
     gap: var(--gap);
     display: flex;
     padding: var(--padding-y) var(--padding-x);
     align-items: center;
-    border-bottom: 2px solid hsla(235, 14%, 26%, 0.3);
+    border-bottom: 1px solid hsla(0, 0%, 95%, 0.1);
 }
 
 .concluida {
@@ -64,20 +101,42 @@ body {
 }
 
 .tarefa--check {
+    cursor: pointer;
+    background-color: white;
     height: 1.5rem;
     width: 1.5rem;
 }
 
 .add--tarefa {
-    width: 1.5rem;
-    height: 1.5rem;
-    font: inherit;
+    font-size: 1.5rem;
+    flex: 0 0 36px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    background-image: linear-gradient(45deg, hsla(192, 100%, 67%, 1), hsla(280, 87%, 65%, 1));
+    cursor: pointer;
+    user-select: none;
+}
+
+.add--tarefa:hover {
+    transition: 0.4s;
+    box-shadow: 0px 4px 20px #fc00ff, 0px -3px 15px #00dbde;
 }
 
 #criar--tarefa {
+    flex: 1 0;
+    color: inherit;
     font: inherit;
-    width: 100%;
     border: none;
+    background: none;
+    outline: none;
+}
+
+
+#criar--tarefa::placeholder {
+    color: #997de5;
 }
 
 #todo--footer {
@@ -90,4 +149,48 @@ body {
     border: none;
     background: none;
     font: inherit;
+}
+
+#app--core::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(var(--angulo), #fc00ff 0%, #00dbde 100%);
+    filter: blur(20px);
+}
+
+
+#app--core::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: .25rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--angulo), #e81cff 0%, #40c9ff 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.wrapper--filtros {
+    display: flex;
+    gap: .75rem;
+}
+
+.btn--filtro {
+    user-select: none;
+    font-weight: 600;
+    cursor: pointer;
+    color: #C8CBE7;
+}
+
+.btn--filtro:hover {
+    transition: 0.4s;
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow: -4px 7px 20px #fc00ff, -2px -3px 15px #00dbde;
 }
