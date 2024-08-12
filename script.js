@@ -17,7 +17,6 @@ const addTask = function (e) {
   tarefaDiv.prepend(newTask);
   alert("Tarefa Adicionada!");
   atualizarCounter();
-  adicionarEventos();
   task.value = "";
 };
 
@@ -26,21 +25,13 @@ const atualizarCounter = function () {
   const counter = document.querySelector(".counter");
   numTarefas <= 0
     ? (counter.textContent = "Tudo Feito 😉")
-    : (counter.textContent = `${numTarefas} ${
-        numTarefas === 1 ? "Tarefa" : "Tarefas"
+    : (counter.textContent = `${numTarefas} ${numTarefas === 1 ? "Tarefa" : "Tarefas"
       }`);
 };
 
-const adicionarEventos = function () {
-  const chkBoxes = document.querySelectorAll(".tarefa--check");
-  for (const box of chkBoxes) {
-    box.addEventListener("change", alterarEstado);
-  }
-};
-
-const alterarEstado = function (e) {
-  const estado = e.target.checked;
-  const task = e.target.parentElement;
+const alterarEstado = function (element) {
+  const estado = element.checked;
+  const task = element.parentElement;
   estado ? task.classList.add("concluida") : task.classList.remove("concluida");
 };
 
@@ -87,6 +78,11 @@ document.getElementById("pendentes").addEventListener("click", () => {
 document.getElementById("done").addEventListener("click", () => {
   aplicarFiltro("concluidos");
 });
+document.getElementById("tarefas").addEventListener('click', function (e) {
+  const gerador = e.target;
+  if (gerador.classList.contains("tarefa--check")) {
+    alterarEstado(gerador)
+  }
+})
 
 atualizarCounter();
-adicionarEventos();
